@@ -13,7 +13,7 @@ switch ($_GET["op"]) {
     case "uno":
         $ID = $_POST["ID"]; 
         $datos = array(); 
-        $datos = $datosdemograficos->uno($ID); 
+        $datos = $demografia->uno($ID); 
         $uno = mysqli_fetch_assoc($datos);
         echo json_encode($uno); 
         break;
@@ -26,7 +26,7 @@ switch ($_GET["op"]) {
         $Pais = $_POST["Pais"];
 
         $datos = array(); 
-        $datos = $datosdemograficos->insertar($Nombre, $Apellido, $Edad, $Genero, $Ciudad,  $Pais); 
+        $datos = $demografia->insertar($Nombre, $Apellido, $Edad, $Genero, $Ciudad,  $Pais); 
         echo json_encode($datos); 
         break;
     
@@ -42,13 +42,13 @@ switch ($_GET["op"]) {
   
 
         $datos = array(); 
-        $datos = $datosdemograficos->actualizar($ID, $Nombre, $Apellido, $Edad, $Genero, $Ciudad, $Pais); 
+        $datos = $demografia->actualizar($ID, $Nombre, $Apellido, $Edad, $Genero, $Ciudad, $Pais); 
         echo json_encode($datos); 
         break;
     case 'eliminar':
         $ID = $_POST["ID"]; 
         $datos = array();
-        $datos = $datosdemograficos->eliminar($ID); 
+        $datos = $demografia->eliminar($ID); 
         echo json_encode($uno); 
         break;
     }
