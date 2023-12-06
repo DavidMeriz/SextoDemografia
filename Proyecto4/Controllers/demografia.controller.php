@@ -24,12 +24,10 @@ switch ($_GET["op"]) {
         $Genero = $_POST["Genero"];
         $Ciudad = $_POST["Ciudad"];
         $Pais = $_POST["Pais"];
-
         $datos = array(); 
         $datos = $demografia->insertar($Nombre, $Apellido, $Edad, $Genero, $Ciudad,  $Pais); 
         echo json_encode($datos); 
-        break;
-    
+        break;    
     case 'actualizar':
         $ID = $_POST["ID"];
         $Nombre = $_POST["Nombre"];
@@ -38,9 +36,6 @@ switch ($_GET["op"]) {
         $Genero = $_POST["Genero"];
         $Ciudad = $_POST["Ciudad"];
         $Pais = $_POST["Pais"];
-
-  
-
         $datos = array(); 
         $datos = $demografia->actualizar($ID, $Nombre, $Apellido, $Edad, $Genero, $Ciudad, $Pais); 
         echo json_encode($datos); 
