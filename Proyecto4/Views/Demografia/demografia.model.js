@@ -49,10 +49,8 @@ class Demografia_Model {
       $("#tabla_demografia").html(html);
     });
   }
-  insertar() {
-    var dato = new FormData();
-    dato = this.Ruta;
-   $.ajax({
+  insertar() {    
+    $.ajax({
     url: "../../Controllers/demografia.controller.php?op=insertar",
     type: "POST",
     data: this.Ruta,
