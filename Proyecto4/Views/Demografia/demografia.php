@@ -38,7 +38,6 @@
                                 <th class="border-bottom-0">
                                     <h6 class="fw-semibold mb-0">Pais</h6>
                                 </th>
-
                             </tr>
                         </thead>
                         <tbody id="tabla_demografia">
