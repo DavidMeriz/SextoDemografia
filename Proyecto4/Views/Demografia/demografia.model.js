@@ -1,4 +1,3 @@
-
 class Demografia_Model {
   constructor(
     ID,
