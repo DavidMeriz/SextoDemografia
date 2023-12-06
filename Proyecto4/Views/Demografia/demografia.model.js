@@ -23,8 +23,7 @@ class Demografia_Model {
     var html = "";
     $.get("../../Controllers/demografia.controller.php?op=" + this.Ruta, (res) => {
       res = JSON.parse(res);
-      $.each(res, (index, valor) => {
-       
+      $.each(res, (index, valor) => {       
         html += `<tr>
                 <td>${index + 1}</td>
                 <td>${valor.Nombre}</td>
@@ -52,7 +51,7 @@ class Demografia_Model {
   }
   insertar() {
     var dato = new FormData();
-    dato = this.Ruta;
+    dato = this.ID;
    $.ajax({
     url: "../../Controllers/demografia.controller.php?op=insertar",
     type: "POST",
