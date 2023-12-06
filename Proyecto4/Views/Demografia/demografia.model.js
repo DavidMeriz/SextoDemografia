@@ -21,7 +21,7 @@ class Demografia_Model {
  }
   todos() {
     var html = "";
-    $.get("../../Controllers/demografia.controller.php?op=" + this.Ruta, (res) => {
+    $.get("../../Controllers/demografia.controller.php?op=todos",(res) => {
       res = JSON.parse(res);
       $.each(res, (index, valor) => {       
         html += `<tr>
@@ -51,24 +51,25 @@ class Demografia_Model {
   }
   insertar() {
     var dato = new FormData();
-    dato = this.ID;
+    dato = this.Ruta;
    $.ajax({
     url: "../../Controllers/demografia.controller.php?op=insertar",
     type: "POST",
-    data: dato,
+    data: this.Ruta,
     contentType: false,
     processData: false,
     success: function (res) {
         res = JSON.parse(res);
         if(res === "ok"){
-            Swal.fire("Demografia", "Datos Registrados", "success");
+            Swal.fire("Demografia", "Datos Registrados Correctamente", "success");
             todos();
         }else{
             Swal.fire("Error", res, "error"); 
         }
     }
    });
-   this.limpia_Cajas();    
+   this.todos()
+     
   }
   limpia_Cajas(){
     document.getElementById("Nombre").value = "";  
