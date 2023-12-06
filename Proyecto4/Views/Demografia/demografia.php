@@ -41,7 +41,6 @@
                             </tr>
                         </thead>
                         <tbody id="tabla_demografia">
-
                         </tbody>
                     </table>
                 </div>
