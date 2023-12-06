@@ -52,7 +52,7 @@ class Demografia_Model {
   }
   insertar() {
     var dato = new FormData();
-    dato = this.data;
+    dato = this.Ruta;
    $.ajax({
     url: "../../Controllers/demografia.controller.php?op=insertar",
     type: "POST",

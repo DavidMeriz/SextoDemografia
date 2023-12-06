@@ -63,7 +63,7 @@ class Clase_Demografia
         try {
             $con = new Clase_Conectar_Base_Datos();
             $con = $con->ProcedimientoConectar();
-            $cadena = "DELETE  FROM datosdemograficos WHERE ID=$ID";
+            $cadena = "DELETE  FROM `datosdemograficos` WHERE ID=$ID";
             $result = mysqli_query($con, $cadena);
             return "ok";
         } catch (Throwable $th) {
