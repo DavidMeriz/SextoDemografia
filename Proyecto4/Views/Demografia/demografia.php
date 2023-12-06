@@ -52,10 +52,7 @@
 </div>
 
 <!-- Ventana Modal-->
-
 <!-- Button trigger modal -->
-
-
 <!-- Modal -->
 <div class="modal fade" id="Modal_demografia" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
