@@ -20,7 +20,7 @@ var todos_controlador = () => {
 var guardaryeditar = (e)=>{
     e.preventDefault();
     var formData = new FormData($("#form_demografia")[0]);
-    var demografia = new Demografia_Model('','','','','','','',formData,'insertar');
+    var demografia = new Demografia_Model('','','','','','',formData,'insertar');
     demografia.insertar();
 }
 

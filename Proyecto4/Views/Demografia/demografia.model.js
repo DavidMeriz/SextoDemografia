@@ -47,7 +47,7 @@ class Demografia_Model {
             </td></tr>
                 `;
       });
-      $("#tabla_Demografia").html(html);
+      $("#tabla_demografia").html(html);
     });
   }
   insertar() {

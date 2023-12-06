@@ -1,6 +1,6 @@
 <?php
 require_once('../Models/cls_demografia.model.php');
-$demografia = new Clase_demografia;
+$demografia = new Clase_Demografia;
 switch ($_GET["op"]) {
     case 'todos':
         $datos = array(); 
