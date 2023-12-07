@@ -18,56 +18,59 @@ class Demografia_Model {
     this.Pais = Pais;
     this.Ruta = Ruta;
  }
-  todos() {
-    var html = "";
-    $.get("../../Controllers/demografia.controller.php?op=todos",(res) => {
-      res = JSON.parse(res);
-      $.each(res, (index, valor) => {       
-        html += `<tr>
-                <td>${index + 1}</td>
-                <td>${valor.Nombre}</td>
-                <td>${valor.Apellido}</td>
-                <td>${valor.Edad}</td>
-                <td>${valor.Genero}</td>
-                <td>${valor.Ciudad}</td>
-                <td>${valor.Pais}</td>
-               
-            <td>
-            <button class='btn btn-success' onclick='editar(${
-              valor.ID
-            })'>Editar</button>
-            <button class='btn btn-danger' onclick='eliminar(${
-              valor.ID
-            })'>Eliminar</button>
-            <button class='btn btn-info' onclick='ver(${
-              valor.ID
-            })'>Ver</button>
-            </td></tr>
-                `;
-      });
-      $("#tabla_demografia").html(html);
+ todos() {
+  var html = "";
+  $.get("../../Controllers/demografia.controller.php?op=" + this.Ruta, (res) => {
+    res = JSON.parse(res);
+    $.each(res, (index, valor) => {
+    
+      html += `<tr>
+              <td>${index + 1}</td>
+              <td>${valor.Nombre}</td>
+              <td>${valor.Apellido}</td>
+              <td>${valor.Edad}</td>
+              <td>${valor.Genero}</td>
+              <td>${valor.Ciudad}</td>
+              <td>${valor.Pais}</td>
+              
+          <td>
+          <button class='btn btn-success' onclick='editar(${
+            valor.ID
+          })'>Editar</button>
+          <button class='btn btn-danger' onclick='eliminar(${
+            valor.ID
+          })'>Eliminar</button>
+          <button class='btn btn-info' onclick='ver(${
+            valor.ID
+          })'>Ver</button>
+          </td></tr>
+              `;
     });
-  }
-  insertar() {    
-    $.ajax({
+    $("#tabla_demografia").html(html);
+  });
+}
+
+insertar() {
+  var dato = new FormData();
+  dato = this.Ruta;
+  $.ajax({
     url: "../../Controllers/demografia.controller.php?op=insertar",
     type: "POST",
-    data: this.Ruta,
+    data: dato,
     contentType: false,
     processData: false,
     success: function (res) {
-        res = JSON.parse(res);
-        if(res === "ok"){
-            Swal.fire("Demografia", "Datos Registrados Correctamente", "success");
-            todos();
-        }else{
-            Swal.fire("Error", res, "error"); 
-        }
-    }
-   });
-   this.todos()
-     
-  }
+      res = JSON.parse(res);
+      if (res === "ok") {
+        Swal.fire("datosdemograficos", "Datos Registrados", "success");
+        todos_controlador();
+      } else {
+        Swal.fire("Error", res, "error");
+      }
+    },
+  });
+  this.limpia_Cajas();
+}
   limpia_Cajas(){
     document.getElementById("Nombre").value = "";  
     document.getElementById("Apellido").value = "";

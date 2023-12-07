@@ -6,11 +6,11 @@ function init() {
 
 $().ready(() => {
  
-  todos();
+  todos_controlador();
 });
 
-var todos = () => {
-  var todos = new Demografia_Model("", "", "", "", "", "", "","", "todos");
+var todos_controlador = () => {
+  var todos = new Demografia_Model('','','','','','','','todos')
   todos.todos();
 }
 
@@ -32,8 +32,8 @@ var guardaryeditar = (e)=>{
     formData.append('Pais',Pais);
 
 
-    var demografia = new Demografia_Model('','','','','','','',formData,'insertar');
-    demografia.insertar();
+    var todos = new Demografia_Model('','','','','','','',formData,'insertar')
+    todos.insertar();
 }
 
 
