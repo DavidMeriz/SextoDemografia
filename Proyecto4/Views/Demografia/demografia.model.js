@@ -52,7 +52,7 @@ class Demografia_Model {
 
 insertar() {
   var dato = new FormData();
-  dato = this.Ruta;
+  dato = this.Pais;
   $.ajax({
     url: "../../Controllers/demografia.controller.php?op=insertar",
     type: "POST",
@@ -62,7 +62,7 @@ insertar() {
     success: function (res) {
       res = JSON.parse(res);
       if (res === "ok") {
-        Swal.fire("datosdemograficos", "Datos Registrados", "success");
+        Swal.fire("demografia", "Datos Registrados", "success");
         todos_controlador();
       } else {
         Swal.fire("Error", res, "error");
@@ -71,13 +71,90 @@ insertar() {
   });
   this.limpia_Cajas();
 }
-  limpia_Cajas(){
-    document.getElementById("Nombre").value = "";  
-    document.getElementById("Apellido").value = "";
-    document.getElementById("Edad").value = "";
-    document.getElementById("Genero").value = "";
-    document.getElementById("Ciudad").value = "";
-    document.getElementById("Pais").value = "";
-    $("#Modal_demografia").modal("hide");
-  }
+uno() {
+  var ID = this.ID;
+  $.post(
+    "../../Controllers/demografia.controller.php?op=uno",
+    { ID: ID },
+    (res) => {
+      console.log(res);
+      res = JSON.parse(res);
+      $("#ID").val(res.ID);
+      $("#Nombre").val(res.Nombre);
+      $("#Apellido").val(res.Apellido);
+      $("#Edad").val(res.Edad);
+      $("#Genero").val(res.Genero);
+      $("#Ciudad").val(res.Ciudad);
+      $("#Pais").val(res.Pais);
+    }
+  );
+  $("#Modal_demografia").modal("show");
+}
+
+editar() {
+  var dato = new FormData();
+  dato = this.Pais;
+  $.ajax({
+    url: "../../Controllers/demografia.controller.php?op=actualizar",
+    type: "POST",
+    data: dato,
+    contentType: false,
+    processData: false,
+    success: function (res) {
+      res = JSON.parse(res);
+      if (res === "ok") {
+        Swal.fire("Demografia", "Datos Registrados", "success");
+        todos_controlador();
+      } else {
+        Swal.fire("Error", res, "error");
+      }
+    },
+  });
+  this.limpia_Cajas();
+}
+
+eliminar() {
+  var ID = this.ID;
+
+  Swal.fire({
+    title: "Demografia",
+    text: "Esta seguro de eliminar los datos",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#d33",
+    cancelButtonColor: "#3085d6",
+    confirmButtonText: "Eliminar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $.post(
+        "../../Controllers/demografia.controller.php?op=eliminar",
+        { ID: ID },
+        (res) => {
+          console.log(res);
+          
+          res = JSON.parse(res);
+          if (res === "ok") {
+            Swal.fire("Demografia", "Datos Eliminados", "success");
+            todos_controlador();
+          } else {
+            Swal.fire("Error", res, "error");
+          }
+        }
+      );
+    }
+  });
+
+  this.limpia_Cajas();
+}
+limpia_Cajas() {
+  document.getElementById("Nombre").value = "";
+  document.getElementById("Apellido").value = "";
+  document.getElementById("Edad").value = "";
+  document.getElementById("Genero").value = "";
+  document.getElementById("Ciudad").value = "";
+  document.getElementById("Pais").value = "";
+  $("#ID").val("");
+
+  $("#Modal_demografia").modal("hide");
+}
 }

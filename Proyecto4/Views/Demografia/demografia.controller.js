@@ -10,31 +10,34 @@ $().ready(() => {
 });
 
 var todos_controlador = () => {
-  var todos = new Demografia_Model('','','','','','','','todos')
+  console.log();
+
+  var todos = new Demografia_Model("","","","","","","","todos")
   todos.todos();
 }
 
-var guardaryeditar = (e)=>{
-    e.preventDefault();
-    const Nombre = document.getElementById("Nombre").value;
-    const Apellido = document.getElementById("Apellido").value;
-    const Edad = document.getElementById("Edad").value;
-    const Genero = document.getElementById("Genero").value;
-    const Ciudad = document.getElementById("Ciudad").value;
-    const Pais = document.getElementById("Pais").value;
-
-    var formData = new FormData(e.target);  
-    formData.append('Nombre',Nombre);
-    formData.append('Apellido',Apellido);
-    formData.append('Edad',Edad);
-    formData.append('Genero',Genero);
-    formData.append('Ciudad',Ciudad);
-    formData.append('Pais',Pais);
-
-
-    var todos = new Demografia_Model('','','','','','','',formData,'insertar')
-    todos.insertar();
+var guardaryeditar = (e) => {
+  e.preventDefault()
+  var formData =  new formData($("#form_demografia")[0]);
+   
+  var ID = document.getElementById("ID").value
+  console.log(ID);
+  if(ID > 0){
+    var demografia = new Demografia_Model("","","","","","",formData,"editar");
+    demografia.editar();
+  }else{
+    var demografia = new Demografia_Model("","","","","","",formData,"insertar");
+    demografia.insertar();  
+  }
+};
+var editar = (ID) => {
+  var uno = new Demografia_Model(ID, "", "", "", "", "", "","uno");
+  uno.uno();
+}
+var eliminar=(ID)=>{
+  var eliminar = new Demografia_Model(ID, "", "", "", "", "", "","eliminar");
+  eliminar.eliminar();
 }
 
 
-;init();
+init();

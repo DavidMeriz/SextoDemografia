@@ -11,8 +11,8 @@
                 <h5 class="card-title fw-semibold mb-4">Demografia</h5>
 
                 <div class="table-responsive">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal_Demografia">
-                        Ingresar Datos
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal_demografia">
+                        Ingresar Datos Demograficos
                     </button>
                     <table class="table text-nowrap mb-0 align-middle">
                         <thead class="text-dark fs-4">
@@ -61,25 +61,22 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                <input type="hidden" name="ID" id="ID">
                 <div class="form-group">
                         <label for="Nombre">Nombre</label>
-                        <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Nombre" required>
+                        <input type="text" required class="form-control" id="Nombre" name="Nombre" placeholder="Nombre" required>
                     </div>
                     <div class="form-group">
                         <label for="Apellido">Apellido</label>
-                        <input type="text"  class="form-control" id="Apellido" name="Apellido" placeholder="Apellido" required>
+                        <input type="text"  required class="form-control" id="Apellido" name="Apellido" placeholder="Apellido" required>
                     </div>
                     <div class="form-group">
                         <label for="Edad">Edad</label>
-                        <input type="text"  class="form-control" id="Edad" name="Edad" placeholder="Edad" required>
+                        <input type="text"  required class="form-control" id="Edad" name="Edad" placeholder="Edad" required>
                     </div>
                     <div class="form-group">
                         <label for="Genero">Genero</label>
-                        <select name="Genero" id="Genero" class="form-control">
-                            <option value="Masculino">Masculino</option>
-                            <option value="Femenino">Femenino</option>
-                            <option value="Otro">Otro</option>
-                        </select>
+                        <input type="text"  required class="form-control" id="Genero" name="Genero" placeholder="Genero" required>
                     </div>
                     <div class="form-group">
                         <label for="Ciudad">Ciudad</label>
