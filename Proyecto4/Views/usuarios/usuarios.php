@@ -1,15 +1,9 @@
 <?php require_once('../html/head2.php') ?>
-
-
-
-
 <div class="row">
-
     <div class="col-lg-8 d-flex align-items-stretch">
         <div class="card w-100">
             <div class="card-body p-4">
                 <h5 class="card-title fw-semibold mb-4">Lista de Usuarios</h5>
-
                 <div class="table-responsive">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal_usuario">
                         Nuevo Usuario
@@ -35,7 +29,6 @@
                             </tr>
                         </thead>
                         <tbody id="tabla_usuarios">
-
                         </tbody>
                     </table>
                 </div>
@@ -43,12 +36,8 @@
         </div>
     </div>
 </div>
-
 <!-- Ventana Modal-->
-
 <!-- Button trigger modal -->
-
-
 <!-- Modal -->
 <div class="modal fade" id="Modal_usuario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -59,6 +48,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+
+                    <input type="hidden" name="UsuarioId" id="UsuarioId">
+
+
                     <div class="form-group">
                         <label for="Cédula">Cédula</label>
                         <input type="text" onfocusout="algoritmo_cedula();cedula_repetida();" required class="form-control" id="Cedula" name="Cedula" placeholder="Cédula">
@@ -107,7 +100,6 @@
                         <div class="alert alert-danger d-none" role="alert" id="errorContrasenia">
                         </div>
                     </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Grabar</button>
@@ -117,8 +109,6 @@
         </div>
     </div>
 </div>
-
 <?php require_once('../html/script2.php') ?>
-
 <script src="usuarios.controller.js"></script>
 <script src="usuarios.model.js"></script>
