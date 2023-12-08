@@ -24,15 +24,35 @@ class Demografia_Model {
     console.log(res);
     res = JSON.parse(res);
     $.each(res, (index, valor) => {
-    
+      var fondo;
+        if (valor.Genero == "Masculino") fondo = "bg-primary";
+        else if (valor.Genero == "Femenino") fondo = "bg-success";
+        else if (valor.Genero == "Otro") fondo = "bg-warning";
+        var fondoedad;
+
+        if (valor.Edad < 18)  fondoedad = "bg-danger";
+        if (valor.Edad >= 18) fondoedad = "bg-primary";
+        if (valor.Edad > 50) fondoedad = "bg-success";
+        
       html += `<tr>
               <td>${index + 1}</td>
               <td>${valor.Nombre}</td>
               <td>${valor.Apellido}</td>
-              <td>${valor.Edad}</td>
-              <td>${valor.Genero}</td>
+              
+              <td><div class="d-flex align-items-center gap-2">
+              <span class="badge ${fondoedad} rounded-3 fw-semibold">
+              ${valor.Edad}</span>
+                 </div>
+            </td>
+              <td><div class="d-flex align-items-center gap-2">
+                <span class="badge ${fondo} rounded-3 fw-semibold">
+                ${valor.Genero}</span>
+                   </div>
+              </td>
               <td>${valor.Ciudad}</td>
               <td>${valor.Pais}</td>
+              
+
               
           <td>
           <button class='btn btn-success' onclick='editar(${
