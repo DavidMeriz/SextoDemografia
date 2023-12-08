@@ -76,7 +76,11 @@
                     </div>
                     <div class="form-group">
                         <label for="Genero">Genero</label>
-                        <input type="text"  required class="form-control" id="Genero" name="Genero" placeholder="Genero" required>
+                        <select name="Genero" id="Genero" class="form-control">
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Otro">Otro</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="Ciudad">Ciudad</label>
