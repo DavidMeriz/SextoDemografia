@@ -21,6 +21,7 @@ class Demografia_Model {
  todos() {
   var html = "";
   $.get("../../Controllers/demografia.controller.php?op=" + this.Ruta, (res) => {
+    console.log(res);
     res = JSON.parse(res);
     $.each(res, (index, valor) => {
     

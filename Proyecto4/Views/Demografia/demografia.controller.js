@@ -17,8 +17,9 @@ var todos_controlador = () => {
 }
 
 var guardaryeditar = (e) => {
+  console.log();
   e.preventDefault()
-  var formData =  new formData($("#form_demografia")[0]);
+  var formData =  new FormData($("#form_demografia")[0]);
    
   var ID = document.getElementById("ID").value
   console.log(ID);
